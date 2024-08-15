@@ -7,20 +7,13 @@
 body{
     background-color:#C0C0C0;
 }
-
 #page{
     border-radius:5px;
     border-color:#333333;
     border-width:1px;
     background-color:#FFFFFF;
-    /*min-width:1024px;*/
-    /*max-width:1024px;*/
-    /*max-height: 1024px;*/
-    /*min-height: 768px;*/
-    /*overflow-y:scroll;*/
     padding:10px 10px 10px 10px;
 }
-
 #header{
     display:table;
     border-color:#111111;
@@ -32,12 +25,8 @@ body{
     min-width:200px;
     min-height:200px;
 }
-
 #masthead{
     float:left;
-    /*min-width:200px;*/
-    /*min-height:200px;*/
-    /*max-height:200px;*/
     border-color:#111111;
     border-width: 1px;
     text-align: center;
@@ -50,7 +39,6 @@ h2{
     font-size:18pt;
     font-weight: normal;
 }
-
 h3{
     font-size:16pt;
 }
@@ -58,7 +46,6 @@ h4{
     font-size:14pt;
     font-weight: bold;
 }
-
 #phone{
 
 }
@@ -71,7 +58,6 @@ h4{
     height:1px;
 }
 #content{
-    min-height: 600px;
 
 }
 #footer{
