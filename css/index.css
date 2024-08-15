@@ -4,23 +4,11 @@
     border-color:#111111;
     border-width: 1px;
 }
-body{
-    /*background-color:#C0C0C0;*/
-}
-/*#page{*/
-/*    border-radius:5px;*/
-/*    border-color:#333333;*/
-/*    border-width:1px;*/
-/*    background-color:#FFFFFF;*/
-/*    padding:10px 10px 10px 10px;*/
-/*    margin-bottom: 40px;*/
-/*}*/
 #header{
     display:table;
     border-color:#111111;
     border-width: 1px;
 }
-
 #logo{
     float:left;
     min-width:200px;
@@ -34,29 +22,23 @@ body{
     vertical-align: center;
 }
 h1{
-    font-size:24pt;
+    font-size:16pt;
+    font-weight: bold;
 }
 h2{
-    font-size:18pt;
-    font-weight: normal;
-}
-h3{
-    font-size:16pt;
-}
-h4{
     font-size:14pt;
     font-weight: bold;
 }
-#phone{
-
+h3{
+    font-size:12pt;
+    font-weight: bold;
 }
-#address{
-
+h4{
+    font-size:12pt;
+    font-weight: normal;
 }
 .divider{
-    float:none;
     width:100%;
-    height:1px;
     margin-top:5px;
     margin-bottom:5px;
 }
