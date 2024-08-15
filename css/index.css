@@ -37,15 +37,17 @@ h4{
     font-size:12pt;
     font-weight: normal;
 }
+
 .divider{
     width:100%;
     margin-top:5px;
     margin-bottom:5px;
 }
-#content{
-    margin-bottom: 100px;
+article{
+    margin-bottom:20px;
+    padding-bottom:20px;
 }
-#footer{
-
-
+footer{
+    margin-top:5px;
+    padding-top:5px;
 }
