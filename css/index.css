@@ -1,6 +1,6 @@
 *{
     font-family: Tahoma;
-    font-size:10pt;
+    font-size:12pt;
     border-color:#111111;
     border-width: 1px;
 }
@@ -37,7 +37,7 @@ body{
     float:left;
     min-width:200px;
     min-height:200px;
-    max-height:200px;
+    /*max-height:200px;*/
     border-color:#111111;
     border-width: 1px;
     text-align: center;
@@ -47,16 +47,16 @@ h1{
     font-size:24pt;
 }
 h2{
-    font-size:14pt;
+    font-size:18pt;
     font-weight: normal;
 }
 
 h3{
-    font-size:14pt;
+    font-size:16pt;
 }
 h4{
-    font-size:12pt;
-    font-weight: normal;
+    font-size:14pt;
+    font-weight: bold;
 }
 
 #phone{
