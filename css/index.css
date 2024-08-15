@@ -5,15 +5,16 @@
     border-width: 1px;
 }
 body{
-    background-color:#C0C0C0;
+    /*background-color:#C0C0C0;*/
 }
-#page{
-    border-radius:5px;
-    border-color:#333333;
-    border-width:1px;
-    background-color:#FFFFFF;
-    padding:10px 10px 10px 10px;
-}
+/*#page{*/
+/*    border-radius:5px;*/
+/*    border-color:#333333;*/
+/*    border-width:1px;*/
+/*    background-color:#FFFFFF;*/
+/*    padding:10px 10px 10px 10px;*/
+/*    margin-bottom: 40px;*/
+/*}*/
 #header{
     display:table;
     border-color:#111111;
@@ -52,13 +53,15 @@ h4{
 #address{
 
 }
-#divider{
+.divider{
     float:none;
     width:100%;
     height:1px;
+    margin-top:5px;
+    margin-bottom:5px;
 }
 #content{
-
+    margin-bottom: 100px;
 }
 #footer{
 
