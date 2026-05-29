@@ -51,5 +51,17 @@ function App() {
 
 const root = document.getElementById('root');
 if (root) {
-  createRoot(root).render(createElement(App, null));
+  // Minimal sanity check — does createElement + createRoot work at all?
+  root.setAttribute('data-framework-test', 'starting');
+  try {
+    const testEl = createElement('div', null, 'framework-works');
+    root.setAttribute('data-framework-test', 'createElement-ok');
+    const r = createRoot(root);
+    root.setAttribute('data-framework-test', 'createRoot-ok');
+    r.render(createElement(App, null));
+    root.setAttribute('data-framework-test', 'render-ok');
+  } catch (err: unknown) {
+    root.setAttribute('data-framework-test', 'error: ' + String(err));
+    root.textContent = 'RENDER ERROR: ' + String(err);
+  }
 }

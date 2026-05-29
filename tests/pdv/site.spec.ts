@@ -14,6 +14,19 @@ test.describe('Post-Deployment Verification', () => {
 
   test('homepage renders About Us content', async ({ page }) => {
     await page.goto('/');
+    // Debug: capture framework diagnostics if render fails
+    const debugAttr = await page.locator('#root').getAttribute('data-framework-test');
+    const rootHtml = await page.locator('#root').innerHTML();
+    if (!rootHtml || rootHtml.length === 0) {
+      const consoleErrors: string[] = [];
+      page.on('console', msg => { if (msg.type() === 'error') consoleErrors.push(msg.text()); });
+      await page.reload({ waitUntil: 'networkidle' });
+      await page.waitForTimeout(2000);
+      const rootHtml2 = await page.locator('#root').innerHTML();
+      const debugAttr2 = await page.locator('#root').getAttribute('data-framework-test');
+      console.log(`DEBUG: data-framework-test=${debugAttr2}, rootHtml.length=${rootHtml2.length}, consoleErrors=${JSON.stringify(consoleErrors)}`);
+      throw new Error(`Root is empty. data-framework-test=${debugAttr || debugAttr2}, consoleErrors=${JSON.stringify(consoleErrors)}`);
+    }
     await expect(page.locator('#root')).not.toBeEmpty();
     await expect(page.locator('h1')).toContainText('About Us');
   });
