@@ -19,8 +19,8 @@ declare module '@asymmetric-effort/specifyjs' {
   export function useNavigate(): (to: string, options?: { replace?: boolean }) => void;
 }
 
-declare module '@asymmetric-effort/specifyjs/components/footer' {
-  export interface FooterProps {
+declare module '@asymmetric-effort/specifyjs/components' {
+  export function Footer(props: {
     left?: unknown;
     center?: unknown;
     right?: unknown;
@@ -32,22 +32,37 @@ declare module '@asymmetric-effort/specifyjs/components/footer' {
     maxWidth?: string;
     className?: string;
     ariaLabel?: string;
-  }
-  export function Footer(props: FooterProps): any;
-}
-
-declare module '@asymmetric-effort/specifyjs/components/http-error-page' {
-  export interface HttpErrorPageProps {
-    statusCode: number;
-    title: string;
+  }): any;
+  export function EmptyState(props: {
+    title?: string;
     description?: string;
     actionLabel?: string;
     onAction?: () => void;
-    showGoBack?: boolean;
-  }
-  export function HttpErrorPage(props: HttpErrorPageProps): any;
+  }): any;
 }
 
 declare module '@asymmetric-effort/specifyjs/dom' {
   export function createRoot(container: Element | null): { render(element: any): void };
+}
+
+declare module '@asymmetric-effort/specifyjs/build' {
+  export function specifyJsSeoPlugin(options: {
+    siteUrl: string;
+    title: string;
+    description: string;
+    routes: string[];
+    author?: string;
+    license?: string;
+    repository?: string;
+  }): any;
+  export function specifyJsNoscriptPlugin(options: {
+    title: string;
+    description: string;
+    copyright: string;
+    sections: Array<{
+      id: string;
+      title: string;
+      html: string;
+    }>;
+  }): any;
 }

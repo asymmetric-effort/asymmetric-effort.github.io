@@ -7,9 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Clone SpecifyJS
-        run: git clone https://github.com/asymmetric-effort/specifyjs.git ../specifyjs
-      - name: Set up Node
+- name: Set up Node
         uses: actions/setup-node@v6
         with:
           node-version: '22'
@@ -31,9 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Clone SpecifyJS
-        run: git clone https://github.com/asymmetric-effort/specifyjs.git ../specifyjs
-      - name: Set up Node
+- name: Set up Node
         uses: actions/setup-node@v6
         with:
           node-version: '22'

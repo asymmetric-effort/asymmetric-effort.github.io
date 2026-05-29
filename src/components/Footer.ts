@@ -1,5 +1,5 @@
 import { createElement } from '@asymmetric-effort/specifyjs';
-import { Footer as FooterComponent } from '@asymmetric-effort/specifyjs/components/footer';
+import { Footer as FooterComponent } from '@asymmetric-effort/specifyjs/components';
 import { VERSION } from '../version';
 
 export function Footer() {

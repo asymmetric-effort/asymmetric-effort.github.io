@@ -1,7 +1,7 @@
 import '../css/index.css';
 import { createElement, Router, Route, useRouter } from '@asymmetric-effort/specifyjs';
 import { createRoot } from '@asymmetric-effort/specifyjs/dom';
-import { HttpErrorPage } from '@asymmetric-effort/specifyjs/components/http-error-page';
+import { EmptyState } from '@asymmetric-effort/specifyjs/components';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { AboutUs } from './pages/AboutUs';
@@ -30,14 +30,14 @@ const knownPaths = ['/', '/projects', '/resources'];
 function NotFoundGuard() {
   const { pathname, navigate } = useRouter();
   if (knownPaths.includes(pathname)) return null;
-  return createElement(HttpErrorPage, {
-    statusCode: 404,
-    title: 'Page Not Found',
-    description: `The page "${pathname}" does not exist.`,
-    actionLabel: 'Go Home',
-    onAction: () => navigate('/'),
-    showGoBack: true,
-  });
+  return createElement('main', null,
+    createElement(EmptyState, {
+      title: '404 — Page Not Found',
+      description: `The page "${pathname}" does not exist.`,
+      actionLabel: 'Go Home',
+      onAction: () => navigate('/'),
+    }),
+  );
 }
 
 function App() {
