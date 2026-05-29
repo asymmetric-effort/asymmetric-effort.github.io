@@ -1,6 +1,6 @@
 {
   "name": "asymmetric-effort",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "private": true,
   "scripts": {
     "dev": "vite --port 3000",
