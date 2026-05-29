@@ -37,8 +37,32 @@ jobs:
         run: npm install
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
+      - name: Build to determine expected JS hash
+        run: npm run build
+      - name: Determine expected JS hash
+        id: hash
+        run: |
+          JS_FILE=$(ls dist/assets/index-*.js 2>/dev/null | head -1 | xargs basename)
+          echo "js_file=$JS_FILE" >> "$GITHUB_OUTPUT"
       - name: Wait for deployment to propagate
-        run: sleep 30
+        run: |
+          BASE="https://asymmetric-effort.com"
+          if [ "$GITHUB_REF" = "refs/heads/dev" ]; then
+            BASE="https://dev.asymmetric-effort.com"
+          fi
+          EXPECTED="${{ steps.hash.outputs.js_file }}"
+          echo "Waiting for CDN to serve $EXPECTED..."
+          for i in $(seq 1 40); do
+            SERVED=$(curl -s "$BASE/" | grep -oP 'index-[a-zA-Z0-9]+\.js' || true)
+            if [ "$SERVED" = "$EXPECTED" ]; then
+              echo "CDN updated after $((i * 15)) seconds"
+              exit 0
+            fi
+            echo "Attempt $i: CDN serving $SERVED, expected $EXPECTED"
+            sleep 15
+          done
+          echo "WARNING: CDN did not update after 10 minutes"
+          exit 1
       - name: Set base URL
         id: url
         run: |

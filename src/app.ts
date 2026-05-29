@@ -1,11 +1,3 @@
-window.onerror = (msg, src, line, col, err) => {
-  const root = document.getElementById('root');
-  if (root) root.textContent = `Error: ${msg} at ${src}:${line}:${col}`;
-};
-window.addEventListener('unhandledrejection', (e) => {
-  const root = document.getElementById('root');
-  if (root) root.textContent = `Unhandled rejection: ${e.reason}`;
-});
 import '../css/index.css';
 import { createElement, Router, Route, useRouter } from '@asymmetric-effort/specifyjs';
 import { createRoot } from '@asymmetric-effort/specifyjs/dom';
@@ -61,9 +53,5 @@ function App() {
 
 const root = document.getElementById('root');
 if (root) {
-  try {
-    createRoot(root).render(createElement(App, null));
-  } catch (err: unknown) {
-    root.textContent = String(err);
-  }
+  createRoot(root).render(createElement(App, null));
 }
