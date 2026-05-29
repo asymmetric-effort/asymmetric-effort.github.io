@@ -53,5 +53,9 @@ function App() {
 
 const root = document.getElementById('root');
 if (root) {
-  createRoot(root).render(createElement(App, null));
+  try {
+    createRoot(root).render(createElement(App, null));
+  } catch (err: unknown) {
+    root.textContent = String(err);
+  }
 }
