@@ -1,7 +1,7 @@
 import '../css/index.css';
 import { createElement, Router, Route, useRouter } from '@asymmetric-effort/specifyjs';
 import { createRoot } from '@asymmetric-effort/specifyjs/dom';
-// EmptyState removed — using inline 404 component
+import { EmptyState } from '@asymmetric-effort/specifyjs/components';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { AboutUs } from './pages/AboutUs';
@@ -31,10 +31,12 @@ function NotFoundGuard() {
   const { pathname, navigate } = useRouter();
   if (knownPaths.includes(pathname)) return null;
   return createElement('main', null,
-    createElement('h1', null, '404'),
-    createElement('h2', null, 'Page Not Found'),
-    createElement('p', null, `The page "${pathname}" does not exist.`),
-    createElement('button', { onclick: () => navigate('/') }, 'Go Home'),
+    createElement(EmptyState, {
+      title: '404 — Page Not Found',
+      description: `The page "${pathname}" does not exist.`,
+      actionLabel: 'Go Home',
+      onAction: () => navigate('/'),
+    }),
   );
 }
 

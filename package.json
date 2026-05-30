@@ -1,6 +1,6 @@
 {
   "name": "asymmetric-effort",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "private": true,
   "scripts": {
     "dev": "vite --port 3000",
@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@asymmetric-effort/specifyjs": "^0.2.27"
+    "@asymmetric-effort/specifyjs": "^0.2.140"
   },
   "devDependencies": {
     "@playwright/test": "^1.49.0",
