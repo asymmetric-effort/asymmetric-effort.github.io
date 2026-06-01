@@ -1,7 +1,6 @@
 import '../css/index.css';
 import { createElement, Router, Route, useRouter } from '@asymmetric-effort/specifyjs';
 import { createRoot } from '@asymmetric-effort/specifyjs/dom';
-import { EmptyState } from '@asymmetric-effort/specifyjs/components';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { AboutUs } from './pages/AboutUs';
@@ -30,13 +29,20 @@ const knownPaths = ['/', '/projects', '/resources'];
 function NotFoundGuard() {
   const { pathname, navigate } = useRouter();
   if (knownPaths.includes(pathname)) return null;
-  return createElement('main', null,
-    createElement(EmptyState, {
-      title: '404 — Page Not Found',
-      description: `The page "${pathname}" does not exist.`,
-      actionLabel: 'Go Home',
-      onAction: () => navigate('/'),
-    }),
+  return createElement('main', { style: { textAlign: 'center', padding: '48px 24px' } },
+    createElement('div', {
+      style: { fontSize: '120px', fontWeight: '700', lineHeight: '1', opacity: '0.15' },
+    }, '404'),
+    createElement('h1', null, 'Page Not Found'),
+    createElement('p', null, `The page "${pathname}" does not exist.`),
+    createElement('button', {
+      onClick: () => navigate('/'),
+      style: {
+        marginTop: '16px', padding: '8px 20px', border: '1px solid var(--color-primary)',
+        borderRadius: 'var(--radius)', backgroundColor: 'var(--color-primary)',
+        color: '#fff', cursor: 'pointer', fontSize: '14px',
+      },
+    }, 'Go Home'),
   );
 }
 
