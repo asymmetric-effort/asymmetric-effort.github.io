@@ -50,17 +50,15 @@ test.describe('Post-Deployment Verification', () => {
     await expect(page.locator('h1')).toContainText('Current Projects');
 
     const cards = page.locator('.project-card');
-    await expect(cards).toHaveCount(10);
+    await expect(cards).toHaveCount(7);
 
     await expect(page.locator('.project-card >> text=SpecifyJS')).toBeVisible();
     await expect(page.locator('.project-card >> text=Scrutineer')).toBeVisible();
     await expect(page.locator('.project-card >> text=Convocate')).toBeVisible();
-    await expect(page.locator('.project-card h2', { hasText: 'Actions' })).toBeVisible();
     await expect(page.locator('.project-card h2', { hasText: 'Linux PAM OIDC' })).toBeVisible();
     await expect(page.locator('.project-card h2', { hasText: 'GreyNet' })).toBeVisible();
-    await expect(page.locator('.project-card h2', { hasText: 'JsonLint' })).toBeVisible();
-    await expect(page.locator('.project-card h2', { hasText: 'YAMLlint' })).toBeVisible();
     await expect(page.locator('.project-card h2', { hasText: 'NogginLessDom' })).toBeVisible();
+    await expect(page.locator('.project-card h2', { hasText: 'Leak Detector' })).toBeVisible();
   });
 
   test('project links use HTTPS', async ({ page }) => {
@@ -100,11 +98,15 @@ test.describe('Post-Deployment Verification', () => {
     await expect(page.locator('h1')).toContainText('Resources');
 
     const cards = page.locator('.project-card');
-    await expect(cards).toHaveCount(1);
+    await expect(cards).toHaveCount(4);
 
     const link = page.locator('.project-card a', { hasText: 'Coding Standards' });
     await expect(link).toBeVisible();
     await expect(link).toHaveAttribute('href', 'https://coding-standards.asymmetric-effort.com');
+
+    await expect(page.locator('.project-card a', { hasText: 'Actions' })).toBeVisible();
+    await expect(page.locator('.project-card a', { hasText: 'JsonLint' })).toBeVisible();
+    await expect(page.locator('.project-card a', { hasText: 'YAMLlint' })).toBeVisible();
   });
 
   test('all internal navigation links work', async ({ page }) => {
@@ -179,12 +181,6 @@ test.describe('Post-Deployment Verification', () => {
 
   test('new projects have correct links', async ({ page }) => {
     await page.goto('/#/projects');
-
-    const jsonlintLink = page.locator('.project-card a', { hasText: 'JsonLint' });
-    await expect(jsonlintLink).toHaveAttribute('href', 'https://jsonlint.asymmetric-effort.com');
-
-    const yamllintLink = page.locator('.project-card a', { hasText: 'YAMLlint' });
-    await expect(yamllintLink).toHaveAttribute('href', 'https://yamllint.asymmetric-effort.com');
 
     const nogginlessdomLink = page.locator('.project-card a', { hasText: 'NogginLessDom' });
     await expect(nogginlessdomLink).toHaveAttribute('href', 'https://nogginlessdom.asymmetric-effort.com');

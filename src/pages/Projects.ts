@@ -8,12 +8,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: 'Actions',
-    url: 'https://actions.asymmetric-effort.com',
-    description:
-      'Reusable GitHub Actions and CI/CD workflows for Asymmetric Effort projects.',
-  },
-  {
     name: 'Convocate',
     url: 'https://convocate.asymmetric-effort.com',
     description:
@@ -27,13 +21,6 @@ const projects: Project[] = [
       'without reliance on centralized control planes. Nodes authenticate and ' +
       'authorize each other directly using cryptographic identity, establishing ' +
       'secure channels only after mutual verification.',
-  },
-  {
-    name: 'JsonLint',
-    url: 'https://jsonlint.asymmetric-effort.com',
-    description:
-      'A fast, browser-based JSON validator and formatter for verifying JSON ' +
-      'syntax and structure.',
   },
   {
     name: 'Leak Detector',
@@ -70,20 +57,13 @@ const projects: Project[] = [
       'A declarative TypeScript UI framework with zero runtime dependencies, ' +
       'built-in routing, and a 56-component library in under 4KB gzipped.',
   },
-  {
-    name: 'YAMLlint',
-    url: 'https://yamllint.asymmetric-effort.com',
-    description:
-      'A browser-based YAML validator and formatter for verifying YAML ' +
-      'syntax and structure.',
-  },
 ];
 
 export function Projects() {
   useHead({
     title: 'Asymmetric Effort - Projects',
-    description: 'Open-source projects by Asymmetric Effort including SpecifyJS, Scrutineer, Convocate, Actions, Leak Detector, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint and NogginLessDom.',
-    keywords: 'SpecifyJS, Scrutineer, Convocate, Actions, Leak Detector, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint, NogginLessDom, open source, TypeScript, security, collaboration',
+    description: 'Open-source projects by Asymmetric Effort including SpecifyJS, Scrutineer, Convocate, Leak Detector, Linux PAM OIDC, GreyNet and NogginLessDom.',
+    keywords: 'SpecifyJS, Scrutineer, Convocate, Leak Detector, Linux PAM OIDC, GreyNet, NogginLessDom, open source, TypeScript, security, collaboration',
     og: {
       title: 'Asymmetric Effort - Projects',
       description: 'Open-source projects by Asymmetric Effort including SpecifyJS, Scrutineer, Convocate, Actions, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint and NogginLessDom.',

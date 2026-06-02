@@ -8,9 +8,24 @@ interface Resource {
 
 const resources: Resource[] = [
   {
+    name: 'Actions',
+    url: 'https://actions.asymmetric-effort.com',
+    description: 'Reusable GitHub Actions and CI/CD workflows for Asymmetric Effort projects.',
+  },
+  {
     name: 'Coding Standards',
     url: 'https://coding-standards.asymmetric-effort.com',
     description: 'Organization-wide coding standards and best practices for all Asymmetric Effort projects.',
+  },
+  {
+    name: 'JsonLint',
+    url: 'https://jsonlint.asymmetric-effort.com',
+    description: 'A fast, browser-based JSON validator and formatter for verifying JSON syntax and structure.',
+  },
+  {
+    name: 'YAMLlint',
+    url: 'https://yamllint.asymmetric-effort.com',
+    description: 'A browser-based YAML validator and formatter for verifying YAML syntax and structure.',
   },
 ];
 
