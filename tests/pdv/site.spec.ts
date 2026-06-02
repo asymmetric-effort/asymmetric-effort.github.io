@@ -50,7 +50,7 @@ test.describe('Post-Deployment Verification', () => {
     await expect(page.locator('h1')).toContainText('Current Projects');
 
     const cards = page.locator('.project-card');
-    await expect(cards).toHaveCount(9);
+    await expect(cards).toHaveCount(10);
 
     await expect(page.locator('.project-card >> text=SpecifyJS')).toBeVisible();
     await expect(page.locator('.project-card >> text=Scrutineer')).toBeVisible();

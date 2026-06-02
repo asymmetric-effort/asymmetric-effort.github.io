@@ -36,6 +36,13 @@ const projects: Project[] = [
       'syntax and structure.',
   },
   {
+    name: 'Leak Detector',
+    url: 'https://leakdetector.asymmetric-effort.com',
+    description:
+      'A zero-dependency Go CLI tool for detecting leaked secrets and ' +
+      'sensitive information in git repositories.',
+  },
+  {
     name: 'Linux PAM OIDC',
     url: 'https://github.com/asymmetric-effort/linux-oidc-plugin',
     description:
@@ -75,8 +82,8 @@ const projects: Project[] = [
 export function Projects() {
   useHead({
     title: 'Asymmetric Effort - Projects',
-    description: 'Open-source projects by Asymmetric Effort including SpecifyJS, Scrutineer, Convocate, Actions, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint and NogginLessDom.',
-    keywords: 'SpecifyJS, Scrutineer, Convocate, Actions, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint, NogginLessDom, open source, TypeScript, security, collaboration',
+    description: 'Open-source projects by Asymmetric Effort including SpecifyJS, Scrutineer, Convocate, Actions, Leak Detector, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint and NogginLessDom.',
+    keywords: 'SpecifyJS, Scrutineer, Convocate, Actions, Leak Detector, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint, NogginLessDom, open source, TypeScript, security, collaboration',
     og: {
       title: 'Asymmetric Effort - Projects',
       description: 'Open-source projects by Asymmetric Effort including SpecifyJS, Scrutineer, Convocate, Actions, Linux PAM OIDC, GreyNet, JsonLint, YAMLlint and NogginLessDom.',
