@@ -58,12 +58,12 @@ header {
   align-items: center;
   gap: 32px;
   padding: 0 24px;
-  height: 56px;
+  height: 116px;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
 }
 
-header .logo { height: 32px; }
+header .logo { height: 100px; }
 
 /* Navigation */
 nav { display: flex; gap: 8px; align-items: center; }
