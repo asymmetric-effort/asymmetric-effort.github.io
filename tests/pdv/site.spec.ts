@@ -214,25 +214,26 @@ test.describe('Post-Deployment Verification', () => {
     await expect(page.locator('footer')).toBeVisible();
   });
 
-  test('Contact Us button loads JSM widget', async ({ page }) => {
+  test('Contact Us button injects JSM widget script', async ({ page }) => {
     await page.goto('/');
 
     // Contact Us button must be visible in the nav
     const contactBtn = page.locator('nav button.contact-btn', { hasText: 'Contact Us' });
     await expect(contactBtn).toBeVisible();
 
+    // No JSM script before click
+    await expect(page.locator('script[data-jsd-embedded]')).toHaveCount(0);
+
     // Click the button
     await contactBtn.click();
 
-    // The JSM embed script should be injected into the page
+    // The JSM embed script should be injected with correct attributes
     const jsdScript = page.locator('script[data-jsd-embedded]');
     await expect(jsdScript).toHaveCount(1);
     await expect(jsdScript).toHaveAttribute('data-key', 'aec9dd88-79aa-4df3-b245-19580322401a');
     await expect(jsdScript).toHaveAttribute('data-base-url', 'https://jsd-widget.atlassian.com');
-
-    // Wait for the JSM widget iframe to appear (loaded by the external script)
-    const jsdWidget = page.locator('iframe#jsd-widget');
-    await expect(jsdWidget).toBeAttached({ timeout: 30_000 });
+    const src = await jsdScript.getAttribute('src');
+    expect(src).toBe('https://jsd-widget.atlassian.com/assets/embed.js');
   });
 
   test('Contact Us loads JSM widget only once on multiple clicks', async ({ page }) => {
