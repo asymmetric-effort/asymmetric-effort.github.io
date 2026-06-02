@@ -39,6 +39,12 @@ declare module '@asymmetric-effort/specifyjs/components' {
     actionLabel?: string;
     onAction?: () => void;
   }): any;
+  export function Modal(props: {
+    open: boolean;
+    onClose: () => void;
+    title?: string;
+    children?: any;
+  }): any;
 }
 
 declare module '@asymmetric-effort/specifyjs/dom' {
