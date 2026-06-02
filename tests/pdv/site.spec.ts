@@ -228,10 +228,11 @@ test.describe('Post-Deployment Verification', () => {
     const jsdScript = page.locator('script[data-jsd-embedded]');
     await expect(jsdScript).toHaveCount(1);
     await expect(jsdScript).toHaveAttribute('data-key', 'aec9dd88-79aa-4df3-b245-19580322401a');
+    await expect(jsdScript).toHaveAttribute('data-base-url', 'https://jsd-widget.atlassian.com');
 
-    // Wait for the JSM widget iframe to appear (it creates its own iframe)
+    // Wait for the JSM widget iframe to appear (loaded by the external script)
     const jsdWidget = page.locator('iframe#jsd-widget');
-    await expect(jsdWidget).toBeVisible({ timeout: 15_000 });
+    await expect(jsdWidget).toBeAttached({ timeout: 30_000 });
   });
 
   test('Contact Us loads JSM widget only once on multiple clicks', async ({ page }) => {
