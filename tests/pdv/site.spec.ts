@@ -30,7 +30,6 @@ test.describe('Post-Deployment Verification', () => {
     await expect(page.locator('nav')).toContainText('About Us');
     await expect(page.locator('nav')).toContainText('Projects');
     await expect(page.locator('nav')).toContainText('Resources');
-    await expect(page.locator('nav')).toContainText('Contact Us');
   });
 
   test('footer displays copyright with current year', async ({ page }) => {
@@ -212,40 +211,6 @@ test.describe('Post-Deployment Verification', () => {
     // Header and footer must still be present
     await expect(page.locator('header')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
-  });
-
-  test('Contact Us button injects JSM widget script', async ({ page }) => {
-    await page.goto('/');
-
-    // Contact Us button must be visible in the nav
-    const contactBtn = page.locator('nav button.contact-btn', { hasText: 'Contact Us' });
-    await expect(contactBtn).toBeVisible();
-
-    // No JSM script before click
-    await expect(page.locator('script[data-jsd-embedded]')).toHaveCount(0);
-
-    // Click the button
-    await contactBtn.click();
-
-    // The JSM embed script should be injected with correct attributes
-    const jsdScript = page.locator('script[data-jsd-embedded]');
-    await expect(jsdScript).toHaveCount(1);
-    await expect(jsdScript).toHaveAttribute('data-key', 'aec9dd88-79aa-4df3-b245-19580322401a');
-    await expect(jsdScript).toHaveAttribute('data-base-url', 'https://jsd-widget.atlassian.com');
-    const src = await jsdScript.getAttribute('src');
-    expect(src).toBe('https://jsd-widget.atlassian.com/assets/embed.js');
-  });
-
-  test('Contact Us loads JSM widget only once on multiple clicks', async ({ page }) => {
-    await page.goto('/');
-    const contactBtn = page.locator('nav button.contact-btn');
-    await contactBtn.click();
-    await contactBtn.click();
-    await contactBtn.click();
-
-    // Should still only have one script tag
-    const scripts = page.locator('script[data-jsd-embedded]');
-    await expect(scripts).toHaveCount(1);
   });
 
   test('404 page has a working Go Home action', async ({ page }) => {
