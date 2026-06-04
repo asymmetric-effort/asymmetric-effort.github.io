@@ -90,7 +90,7 @@ export function Status() {
   }, []);
 
   return createElement('main', null,
-    createElement('h1', null, 'Service Status'),
+    createElement('h1', null, 'Site Status'),
     createElement('div', { className: 'status-list' },
       ...sites.map((site) =>
         createElement(StatusRow, {
