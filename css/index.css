@@ -154,3 +154,70 @@ p {
   font-size: 14px;
   margin-bottom: 0;
 }
+
+/* Status page */
+.status-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--color-bg);
+  transition: background .15s;
+}
+
+.status-row:hover {
+  background: var(--color-bg-subtle);
+}
+
+.status-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.status-pending {
+  background: #94a3b8;
+  color: #fff;
+}
+
+.status-healthy {
+  background: #22c55e;
+  color: #fff;
+}
+
+.status-unhealthy {
+  background: #ef4444;
+  color: #fff;
+}
+
+.status-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-primary);
+  text-decoration: none;
+  min-width: 160px;
+}
+
+.status-name:hover {
+  color: var(--color-primary-dark);
+}
+
+.status-url {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}

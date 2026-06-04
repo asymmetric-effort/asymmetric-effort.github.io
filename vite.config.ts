@@ -13,7 +13,7 @@ export default defineConfig(async () => {
       siteUrl: 'https://asymmetric-effort.com',
       title: 'Asymmetric Effort',
       description: 'Asymmetric Effort builds open-source frameworks, security tooling and collaboration platforms to help everyone stay safe online.',
-      routes: ['/', '/#/projects', '/#/resources'],
+      routes: ['/', '/#/projects', '/#/resources', '/#/status'],
       author: 'Sam Caldwell',
       license: 'Proprietary',
       repository: 'https://github.com/asymmetric-effort',
@@ -61,6 +61,11 @@ export default defineConfig(async () => {
               <li><a href="https://yamllint.asymmetric-effort.com">YAMLlint</a> — A browser-based YAML validator and formatter for verifying YAML syntax and structure.</li>
             </ul>
           `,
+        },
+        {
+          id: 'status',
+          title: 'Status',
+          html: '<p>Service status requires JavaScript to perform live health checks.</p>',
         },
       ],
     }),

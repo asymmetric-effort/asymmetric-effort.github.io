@@ -9,6 +9,7 @@ export function Header() {
       createElement(Link, { to: '/' }, 'About Us'),
       createElement(Link, { to: '/projects' }, 'Projects'),
       createElement(Link, { to: '/resources' }, 'Resources'),
+      createElement(Link, { to: '/status' }, 'Status'),
     ),
   );
 }

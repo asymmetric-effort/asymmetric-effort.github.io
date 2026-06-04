@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { AboutUs } from './pages/AboutUs';
 import { Projects } from './pages/Projects';
 import { Resources } from './pages/Resources';
+import { Status } from './pages/Status';
 
 // Detect system dark mode preference
 const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -24,7 +25,7 @@ if (
   location.replace('https://' + location.host + location.pathname + location.search + location.hash);
 }
 
-const knownPaths = ['/', '/projects', '/resources'];
+const knownPaths = ['/', '/projects', '/resources', '/status'];
 
 function NotFoundGuard() {
   const { pathname, navigate } = useRouter();
@@ -52,6 +53,7 @@ function App() {
     createElement(Route, { path: '/', component: AboutUs, exact: true }),
     createElement(Route, { path: '/projects', component: Projects }),
     createElement(Route, { path: '/resources', component: Resources }),
+    createElement(Route, { path: '/status', component: Status }),
     createElement(NotFoundGuard, null),
     createElement(Footer, null),
   );
